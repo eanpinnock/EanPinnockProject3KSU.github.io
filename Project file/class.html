@@ -1,0 +1,54 @@
+
+INSERT INTO Employee (Name, Role, Salary, DateOfBirth, PhoneNumber, Email, Address)
+VALUES 
+('Dr. Jon jones', 'Dentist', 30214, '1234-56-789', '678-934-1451', 'Jonjones@Gmail.com', '325 Meadow Way'),
+('Dr. Shawn Pinnock', 'Dentist', 30144, '987-654-321', '555-222-3333', 'ShawnPinnock@yahoo.com', '456 Pine St'),
+('Dr. Gunner Stockton', 'Dental Hygienist', 60000, '1990-09-15', '555-333-4444', 'GunnerStockton@Gmail.com', '789 Maple Ave');
+
+
+INSERT INTO Dentist (EmployeeID) VALUES (1), (2);
+
+
+INSERT INTO DentalHygienist (EmployeeID) VALUES (3);
+
+
+INSERT INTO Patient (Name, DateOfBirth, Age, PhoneNumber, Email, Address, PatientType)
+VALUES
+('Connor Mcgregor', '1995-03-124', 30, '555-444-5555', 'ConnorMcgregor@gmail.com', '125 hickory lane', 'Insured'),
+('Lamar Jackson', '1988-07-094', 37, '555-555-6666', 'LamarJackson@gmail.com', '2551 piedmont rd ne', 'Self-Pay'),
+('Simon Anderson', '1992-01-254', 33, '555-666-7777', 'SimonAnderson@gmail.com', '563 peggy meadows way', 'Both');
+
+
+INSERT INTO DentalRecord (PatientID, PastProcedures, XRays)
+VALUES
+(1, 'Cleaning, Filling', 'X-ray'),
+(2, 'Root canal', 'X-ray'),
+(3, 'Whitening', 'X-ray');
+
+
+INSERT INTO Insurance (PatientID, ProviderName, PolicyNumber, ProviderPhoneNumber)
+VALUES
+(1, 'Delta Dental', 'h111111111', '888-555-9999'),
+(3, 'BlueCross', 'B11111111', '800-555-9999'),
+(3, 'Aetna', 'A1111111', '800-555-9000');
+
+
+INSERT INTO Payment (PatientID, CardType, CardNumber, ExpirationDate, SecurityCode)
+VALUES
+(2, 'Visa', '111111111111111', '2026-11-2', '123'),
+(3, 'MasterCard', '00000000000000', '2028-11-03', '456'),
+(3, 'Amex', '00000000000009', '2027-11-02', '789');
+
+
+INSERT INTO DentalLab (LabName, ServiceProvided)
+VALUES
+('Dental surgery', 'Dentures'),
+('fillings', 'Implants'),
+('Supplies', 'Orthodontics');
+
+
+INSERT INTO Visit (PatientID, DentistID, HygienistID, VisitDate, Services, CurrentTreatment, Cost, NextVisit, LabID)
+VALUES
+(1, 1, 1, '2025-10-01', 'Routine Cleaning', 'Polish and Exam', 120.00, '2026-04-01', 1),
+(2, 2, NULL, '2025-09-20', 'Root Canal', 'Filling', 500.00, NULL, 2),
+(3, 1, 1, '2025-10-15', 'Whitening', 'Whitening ', 250.00, '2026-01-15', 3);
